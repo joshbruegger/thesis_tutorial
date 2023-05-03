@@ -1,11 +1,10 @@
 #!/bin/bash
 #SBATCH --nodes=1
 #SBATCH --gpus-per-node=a100:1
-#SBATCH --tasks-per-node=6
-#SBATCH --job-name=jupyter
+#SBATCH --job-name=trainYOLO
 #SBATCH --mem=16G
 #SBATCH --partition=gpu
-#SBATCH --time=04:00:00
+#SBATCH --time=01:00:00
 
 # Clear the module environment
 module purge
