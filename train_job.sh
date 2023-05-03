@@ -28,11 +28,11 @@ cd thesis_tutorial
 
 # if the database folder does not exist, run the setup.sh script
 if [ ! -d "database" ]; then
-    bash setup.sh
+    bash $TMPDIR/thesis_tutorial/setup.sh
 fi
 
 # Run the training script
-python3 train.py
+python3 $TMPDIR/thesis_tutorial/train.py
 
 # copy the run directory to scratch
 cp -r runs /scratch/$USER/results/
