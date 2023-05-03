@@ -17,6 +17,8 @@ source ~/thesis/env/bin/activate
 
 # Change directory to local directory
 cd $TMPDIR
+echo "Current working directory: $(pwd)"
+
 
 # Copy the repository to the local directory
 git clone https://github.com/joshbruegger/thesis_tutorial
@@ -30,7 +32,7 @@ if [ ! -d "database" ]; then
 fi
 
 # Run the training script
-python3 ./train.py
+python3 train.py
 
 # copy the run directory to scratch
 cp -r runs /scratch/$USER/results/
