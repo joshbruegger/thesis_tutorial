@@ -32,4 +32,7 @@ fi
 # Run the training script
 python3 ~/thesis/thesisTutorial/train.py
 
+# copy the run directory to scratch
+cp -r runs /scratch/$USER/results/
+
 deactivate
