@@ -1,7 +1,8 @@
 #!/bin/bash
+#SBATCH --job-name=trainYOLO_Bruegger
+#SBATCH --output=job-%j.log
 #SBATCH --nodes=1
 #SBATCH --gpus-per-node=a100:1
-#SBATCH --job-name=trainYOLO
 #SBATCH --mem=16G
 #SBATCH --partition=gpu
 #SBATCH --time=01:00:00
