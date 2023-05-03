@@ -30,7 +30,7 @@ if [ ! -d "database" ]; then
 fi
 
 # Run the training script
-python3 ~/thesis/thesisTutorial/train.py
+python3 ./train.py
 
 # copy the run directory to scratch
 cp -r runs /scratch/$USER/results/
