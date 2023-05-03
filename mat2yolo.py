@@ -21,7 +21,7 @@ def get_bbox(index, hdf5_data):
 
 
 def convert(directory):
-    if not(os.path.exists(f'{directory}/labels/') and os.path.isdir(f'{directory}/labels/')):
+    if not (os.path.exists(f'{directory}/labels/') and os.path.isdir(f'{directory}/labels/')):
         os.makedirs(f'{directory}/labels/')
 
     with h5py.File(f'{directory}/images/digitStruct.mat') as hdf5_data:
@@ -29,8 +29,12 @@ def convert(directory):
         print("Number of images: ", num_images)
 
         for i in range(num_images):
+
+            # Halfway checkpoint
+            if i == num_images//2:
+                print("Halfway done!")
+
             img_name = get_name(i, hdf5_data)
-            print(img_name)
             im = cv2.imread(f'{directory}/images/' + img_name)
             h, w, c = im.shape
             arr = get_bbox(i, hdf5_data)
@@ -64,8 +68,10 @@ def convert(directory):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description='Convert digitStruct.mat to labels')
-    parser.add_argument('-d', '--directory', type=str, required=True, help='Path to the working directory')
+    parser = argparse.ArgumentParser(
+        description='Convert digitStruct.mat to labels')
+    parser.add_argument('-d', '--directory', type=str,
+                        required=True, help='Path to the working directory')
 
     args = parser.parse_args()
     convert(args.directory)
