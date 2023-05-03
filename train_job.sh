@@ -15,6 +15,24 @@ module load PyTorch/1.12.1-foss-2022a-CUDA-11.7.0
 # Activate the virtual environment
 source ~/thesis/env/bin/activate
 
+# Change directory to local directory
+cd $TMPDIR
+
+# Copy the repository to the local directory
+git clone https://github.com/joshbruegger/thesis_tutorial
+
+# Change directory to the repository
+cd thesis_tutorial
+
+# if the database folder does not exist, run the setup.sh script
+if [ ! -d "database" ]; then
+    bash setup.sh
+fi
+
+# Run the training script
 python3 ~/thesis/thesisTutorial/train.py
+
+# copy the run directory to scratch
+cp -r runs /scratch/$USER/results/
 
 deactivate
